@@ -2,6 +2,7 @@
 using System.Windows;
 using TaskManager_Klimov.Classes;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.ObjectModel;
 
 namespace TaskManager_Klimov.Models
 {

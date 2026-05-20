@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TaskManager_Klimov.Classes;
+using TaskManager_Klimov.Context;
+using TaskManager_Klimov.Models;
 
 namespace TaskManager_Klimov.ViewModels
 {
@@ -24,6 +28,16 @@ namespace TaskManager_Klimov.ViewModels
                 {
                     MainWindow.init.Close();
                 });
+            }
+        }
+
+        public string SearchText
+        {
+            get => vm_tasks.SearchText;
+            set
+            {
+                vm_tasks.SearchText = value;
+                OnPropertyChanged("SearchText");
             }
         }
     }

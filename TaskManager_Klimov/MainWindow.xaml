@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager_Klimov"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Bahnschrift" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800" FontFamily="Bahnschrift" WindowStyle="None">
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -32,7 +32,11 @@
             <Image Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"
                    Source="/Images/ic_task.png"/>
             <Label Content="Задачник" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                   FontSize="18"/>
+                   FontSize="18" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+            <Label Content="Поиск:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   FontSize="14" HorizontalAlignment="Center" Margin="0,0,130,0"/>
+            <TextBox Text="{Binding vm_tasks.SearchText, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center"
+                     Margin="100,0,0,0" Height="25" Width="175"/>
             <Button Command="{Binding OnClose}" Width="20" Height="20" VerticalAlignment="Top"
                     HorizontalAlignment="Right" Margin="15">
                 <Button.Effect>

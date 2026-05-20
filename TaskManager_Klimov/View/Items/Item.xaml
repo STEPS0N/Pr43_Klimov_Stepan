@@ -84,7 +84,7 @@
             </Grid>
             <Button Style="{StaticResource Update}"
                     Command="{Binding OnEdit}"
-                    Content="{Binding IsEnabledText}"
+                    Content="{Binding IsEnableText}"
                     Height="25"
                     Width="70"
                     VerticalAlignment="Top"
@@ -100,7 +100,7 @@
                     Content="{Binding IsDoneText}"
                     Command="{Binding OnDone}"
                     Height="25"
-                    Width="70"
+                    Width="100"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
                     Margin="0,145,85,0"
@@ -117,7 +117,7 @@
                     Width="70"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
-                    Margin="0,145,160,10"
+                    Margin="0,145,190,10"
                     Grid.Column="1">
                 <Button.Effect>
                     <DropShadowEffect Opacity="0.5" BlurRadius="3" ShadowDepth="3"/>
