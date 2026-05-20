@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using TaskManager_Klimov.Classes;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaskManager_Klimov.Models
 {
@@ -91,10 +92,10 @@ namespace TaskManager_Klimov.Models
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         private bool isEnable;
 
-        [Schema.NotMapped]
+        [NotMapped]
         public bool IsEnable
         {
             get { return isEnable; }
@@ -106,7 +107,7 @@ namespace TaskManager_Klimov.Models
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         public string IsEnableText
         {
             get
@@ -116,7 +117,7 @@ namespace TaskManager_Klimov.Models
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         public string IsDoneText
         {
             get
@@ -126,7 +127,7 @@ namespace TaskManager_Klimov.Models
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         public RealyCommand OnEdit
         {
             get
@@ -135,13 +136,13 @@ namespace TaskManager_Klimov.Models
                 {
                     IsEnable = !IsEnable;
 
-                    //if (!IsEnable)
-                    //    (MainWindow.init.DataContext as ViewModels.VM_Pages).
+                    if (!IsEnable)
+                        (MainWindow.init.DataContext as ViewModels.VM_Pages).vm_tasks.tasksContext.SaveChanges();
                 });
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         public RealyCommand OnDelete
         {
             get
@@ -151,13 +152,15 @@ namespace TaskManager_Klimov.Models
                     if (MessageBox.Show("Вы уверены что хотите удалить задачу?",
                         "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
-
+                        (MainWindow.init.DataContext as ViewModels.VM_Pages).vm_tasks.Tasks.Remove(this);
+                        (MainWindow.init.DataContext as ViewModels.VM_Pages).vm_tasks.tasksContext.Remove(this);
+                        (MainWindow.init.DataContext as ViewModels.VM_Pages).vm_tasks.tasksContext.SaveChanges();
                     }
                 });
             }
         }
 
-        [Schema.NotMapped]
+        [NotMapped]
         public RealyCommand OnDone
         {
             get
